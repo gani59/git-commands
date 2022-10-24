@@ -1,0 +1,125 @@
+                        *****GIT COMMANDS****
+
+                        ===WORKING AREA===
+
+ git init(after opening the git bash)
+
+ ls(list files: to check the files)
+
+git stash list(to save the files temperorly we use, In these we POP and APPLY)
+                       POP: it is to cut the file from stah memory
+                       APPLY: it is copy file from stash mem
+
+                        ===STAGING AREA===
+git add file name (WE ADDING FIES INTO ON TESTING)
+
+git commit -m "file are commited"
+
+git logs (to check the commit id's)
+
+
+                        ===LOCAL REPO===
+
+INANY CASE IF WE ARE NT GIVEN OUR CREDENTIALS IT WILL ASK WHO ARE YOU 
+git config --global user.email "email.id"  {to give mail adresses}
+
+git config --global user.name "name"   {to give name}
+
+INANY CASE WANT TO CHANGE THE DEATILS 
+git config --global --unset.name {name changing}
+
+git config --global --unset.email {for changing the mail id}
+
+AFETR THESE WE HAVE TO CREATE A REPO IN GIT AFTER THAT COPY URL FROM GIT REPO PASTE URL ALONG WITH THE COMMMAND IN THE GIT BASH
+
+git remote add origin url   (command to add the files to url)   ****git remote set-url origin URL  (command to set URL)
+    
+git push -u origin master   (command to push the files form local repo to github repo))
+
+   
+                      ===BRACNHING===
+             (TO REMOVE CONFLICT ERRORS)
+git branch (command to check how many branches)
+
+git create branch master1 (command to create branch)
+
+git checkout master1    (command to enter into the master)
+
+git checkout -b master2 (command to create branch and enter into the bracnh)
+
+git merge -m master   (Inany case files are inthe master if we want to merge the files from the master1)
+
+
+                       ====STASH LIST====
+                      (file are saved temporerly in stash)( it should save into stash afetr adding files)
+git stash list (commnad to list files in the stash list)
+
+git stash save g h (command to save the files
+
+git status(command to the show the files where they are)
+
+
+
+                    =====vi editor====
+              (virtual editor it is used to open file and to enter the data into the file)
+
+touch a
+
+vi a 
+(file will open enetr the data by enter i and after entering :wq1 w = save file and q= quit)
+
+
+                ====LOGS====
+git log(commnad used to check the id number for the files)
+
+git logs --oneline(command used to id number will come in same line) 
+
+
+
+                       ====RESET====
+               (by using reseet command we can bring back the file fom local repo to staging area ang local repo to working area are local to staging area)
+git log --oneline (commit id it will show)
+
+ 
+git reset --soft commit id  (commnad to reset the files from local repo to staging area)
+
+
+
+git reset headfile name (comand used to reset the file from staging area to working area)
+
+
+
+git reset --mixed commit id (command to reset the files from loacl repo to woking area)
+
+
+
+
+                     =====TAGS====
+                (BEFORE THE RELEAASE WE WILL GIVE THE TAGS)
+
+
+git log --oneline
+
+git tag jan-release commit-id(command to give a tag naming to the file)
+
+git tag -d tag-name
+
+git remote add origin url
+git push -u origin master
+
+git push origin jan-release (caommand to push the particular tag into central repo)
+
+git push origin --tags (command to push the multiple tags into the cental repo)
+
+
+git push --delete origin tag-name (command to the tags inthe central repo)
+
+
+
+
+
+
+
+
+
+ 
