@@ -1,0 +1,60 @@
+ **what is kubernate achitecture?
+
+Its is an losely coupled mechanisam for service discovery over the cluster,
+A kuberntes cluster has one or maore control planes and one or more compute nodes.
+
+
+**What are kubernates achitecture components?
+
+The main components are:
+1.Nodes
+2.Image registry
+3.Pods
+
+node:- Node are VM's or physiacl servers that hosts contianersied applications.
+Each node in a cluster run one or more application intances.
+
+image registry:- In image registry container images are stored(images with different versions when we want we can transfred to nodes control plane for excution in container pods)
+
+pods:- pods are  containerized applications run,they can include one or more containers,
+and containers are smallest unit for the deploment apllication.
+
+
+**what is kubernates control plane achitecture?
+
+components for the control plane:-
+kube-apiserver
+etcd
+kube-scheduller
+controller
+
+kube-apiserver:-Application program interface ued to manage,create , and configure kubernates cluster.all the components in the k8's communication can be done through the api 
+
+etcd:- what ever the data comes from the containers it will stored
+
+kube-scheduler:- when new pod is created these assaigns to a node for execution based on resource requirement.
+
+kube-controller:- in any case pod are contianer is deleted are terminated it will create according to configuration which we were given in the .ymal file 
+
+**What is kubernates node architecture?
+
+node are machine either VM's are physical servers, where kubernates place to execute :-
+kubelet: it ensures that the continers described in podspec are up and running properly
+
+kube-proxy:- its maintian network rules on nodes.these network rules aloow network communication to your pods from network sessions inside or outside of cluster.
+
+container-runtime:- contianer runtime also knon as container engine, is a software compenent that can run continers on a host os
+ 
+**What are other kubernates infrastruture components?
+
+pods: pods are the most basic execution unit for kubernates application,pods have its own i.p adresses, pod have single container and some have the another those are called the SIDECAR containers.
+
+Delopyments:- deployments tells how to create or modify instances of the pods that hold a continerized  applications.
+
+replicaset:-  kubernates object used to maintian a stable et of eplicated pods running with in  a clluster at an given time.
+
+cluster DNS: domain naming service it is used to naming to the paticular application 
+
+contianer resource monitering :  
+
+

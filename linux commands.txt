@@ -1,0 +1,217 @@
+==================LINUX COMMANDS==================
+(There are many commands in linux its an ocean but upto devops point of i was mentioned some basic  commands)
+#To list the files 
+*ls 
+#command to see files in human readable format 
+*ls -lrt
+#command to check the hidden files
+*ls -a or ll
+#command to listing files in reverse order
+*ls -r
+#command to add user 
+*sudo add username username  (or) sudo useradd gani
+#command to check user is creted are not
+*cat /etc/passwd 
+#command to delete user
+*sudo deluser username    (or)userdel gani
+===========commands to create  files and directories===============
+#command to create file
+*touch filename
+#command to see the file 
+cat filename
+#command to enter into the file 
+vi filename
+i(insert)#press i insert 
+esc#press esc 
+:wq#for saving the file 
+#command to create file along with entering data with using editor i.e.,vi or nano
+cat >filename
+cltr+d
+#command to enter data for created file 
+*cat >>filename 
+cltr+d
+#command to check number of lines in the code
+*cat -n filename
+#command to  remove file
+*rm filename
+#command to enter into the directory
+cd dir-name
+#command to create number of directories
+cd 
+#command to create directory
+*mkdir hp
+#command to create mutliple directories
+*sudo mkdir -p rushi/gani/hari/siri
+#command to  remove directory
+*rmdir hp
+
+
+==================HOW TO CHECK THE FILE AND DISK SIZES==============
+#command to check file size
+*df -h
+#command to check disk size
+*du -h
+#command to  check sizes in bytes
+df -k
+#command to  sizes in mb
+*df -mb
+#command to know the all mount points
+*df -kh
+
+#command to check file size
+*df filename
+
+#command to check disk size
+*du dirctory name
+
+
+*********permissions concept******
+Here we have 
+*file mode = drwxr-xr-x
+*owner = ubuntu
+*group = ubuntu
+*filesize = 4096
+*lastmodified = jul 19 2022
+*file/diectory name =ram/sam
+(note above mentiond naming are will be straight line u can see in linux by entering command ls -l)
+e.g:-
+drwxr-xr-x   ubuntu   ubuntu      4096          jul 19 2022       ram/sam
+(file mode)  (root)   (root)  (file size)   (lastmodified date)  (file/direc)
+
+CHANGE PERMISSIONS=====>
+And we have the sybolic mode for these
+1.drwxr-xr-x (it is directory)
+2.-rwxr-xr-x (it is file)
+
+here we have symbolic modes those are *user *group *other
+-rwx     r-x     r-x
+(user)  (group) (other)
+
+1. 0   ---  no-permission
+2. 1   --x  excute
+3. 2   -w-  write
+4. 3   -wx  write and excute
+5. 4   r--  read 
+6. 5   r-x  read and excute
+7. 6   rw-  read and write
+8. 7   rwx read write and excute
+
+
+
+If we want to change the permissions for the file above things should be learnt...
+
+sudo chmod 777 file name (file permision given all)
+
+sudo chmod 737 file name ( i want write and excute permission to gruop)
+
+
+CHANGE OWNER-USER ======>
+
+-rw-rw-rw- 1 ubuntu      ubuntu         218 Feb  1 06:29 don
+            (OWNER-USE) (OWNER-GROUP)
+sudo chown root file.name
+
+CHANGE OWNER-USER AND OWNER-GROUP======>
+
+-rw-rw-rw- 1 ubuntu      ubuntu         218 Feb  1 06:29 don
+            (OWNER-USE) (OWNER-GROUP)
+
+sudo chown root:daemon file.name
+
+==================COMMANDS TO COPY FILE AND DIECTORIES==============
+
+#command to copy file 
+*cp source-file destination-file
+#command to copy directories
+e.g..
+*cp -r  /home/ubuntu/poha  /home/ubuntu/sam/ram/gun/lam
+          [/(source)              (desination)
+
+#command to secure copy 
+scp -r [user_name@source_host:path/to/source/file] [user_name@target_host:target/path]
+
+
+
+==================SOME OF THE IMPORTANT COMMANDS=============
+#command to know the count(any where we can use )
+e.g;-
+ls -lrt|wc -l  (it shows list of files and directories in folder in form of numbers)
+
+Another example:-
+cat filename|wc -l  (it shows howmany lines of code is present)
+
+#command to know the total detailed information of file 
+*stat file-name
+
+#command to konw the cpu utilization is
+*top
+
+#command to enter directly into the server is
+* ssh id@ip.address
+
+
+
+===========================SOME OTHER COMMANDS==================
+#COMMAND TO CHECK TH HOST NAME
+*hostname 
+
+#command to change the hostname
+*cd /etc
+    hostname
+    sudo vi hostname 
+    (after inserting the 'i' give your desired naming or number)
+    :wq!
+#command to restart the server
+*sudo reboot 
+
+#command to update the server
+*sudo apt-get update
+
+#command to install java
+*sudo apt install default-jre
+
+#command to uninstall java
+*sudo apt-get remove default-jre    (or)   sudo apt autoremove
+
+#command to install specific version open-jdk
+*sudo apt-get install openjdk-8-jdk
+
+#command to switch aletrantive version
+*sudo update-alternatives --config java
+
+#command to downlaod files from web 
+*sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz
+                        (downlad the tar file from the web into the linux machine)
+
+#If the directory have the files in that senario type three words and then five tab option so automatically it will print what are the files inthe directory
+*e.g :-sudo tar lifename-three-alphabets+tab (option) 
+
+#Command to check which type of os we are using in linx 
+*cat /etc/os-release
+
+#command to check the file in the any file in linux 
+*find / -name context.xml
+
+#command to update after enviromental setup of perticular java  version
+*sudo update-alternatives --config java
+
+#command to copy file form one directory to another 
+(firtly go into the directory where you want to copy file enter command "pwd' and copy the path come out of directry entr into the diectry where file is presnt and give below command)
+*cp file_name path of the directry
+[e.g cp ram /home/ubuntu/arunachala]
+
+#command to see the what commands used previously
+*history
+
+#command to check date
+*date
+
+#command to download the packages from browser
+*sudo wget url
+
+#command to untar files 
+*sudo tar -xvf filename
+
+
+
+

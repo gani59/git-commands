@@ -1,0 +1,68 @@
+                ********DOCKER*****
+
+Initally launch an instance and enter into th server bb using the mobaxterm tool
+
+step1: convert into root user OR sueruser
+      sudo su
+
+step2: update the server 
+   sudo apt-get update
+
+Go to "dockerhub.com" and bring the image fom the docker ofical web page
+
+
+(here image is nothing but an os)
+
+step3: copy the command the from the dockerhub.com 
+
+     docker pull ubuntu
+(in the place of ubuntu we can take any type of image basing upon over equirement)
+
+step4: command to  check the images 
+      
+       docker images
+
+step5: command to enter into the container
+
+      docker run -it imageid 
+
+                (OR)
+      Commanad to run contianer but it will not enter into the contianer
+      
+         docker run -itd imageid
+step6:  command to check the continers
+
+         docker ps
+step7: command to come out from the continer
+ 
+       exit
+step8:  command to check the all continers where it is running or stoped
+ 
+        docker ps -a
+
+step9: command to stop the running continer
+  
+        docker stop continer-id
+stp10: command start the container
+
+         docker start container-id
+
+step11: command to restart the continer
+ 
+         docker restart container-id
+step12: command to remove the continer
+
+        docker rm continer-id
+step14: command to remove the running  continer froce fully
+
+        docker rm continer-id -f
+
+step15: command to remove image
+  
+        docker rmi imageid
+
+step: command to remove or delete multile images
+
+       docker rmi imageid  imageid
+
+    

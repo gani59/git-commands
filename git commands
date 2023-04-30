@@ -1,0 +1,191 @@
+
+*git init
+
+#to create file
+*touch dummy
+
+#to add file
+*git add dummy
+
+#to commit file
+*git commit -m "dummy file is added"
+
+#command to check logs
+*git log
+
+#command to add url
+*git remote add "url"
+
+#command to push the file github repo
+*git push -u origin MASTER
+
+#INANY Cases if you want to unset user name
+*git config --global --unset.name
+
+#Inany case if we want to change the email 
+*git config --global --unset.email
+
+git config --global user.email "saiganeshreddy580@gmail.com"
+git config --global user.name "saiganesh"
+
+
+WE HAVE THREE STAGES FOR DEVOPS
+1. WORKING AREA  
+2. STAGING AREA
+3. LOCAL REPO
+
+
+WHAT IS STASH MEMORY ?
+The files which  are stored temperorly  in staging area called stash memory
+ in these have pop and apply
+pop:-pop is used to cut the file from the stash
+apply:- apply is used to copy file from the stash 
+
+Note:-(after adding files we have to can store the files to stash)
+
+#command to store file in the stash
+*git stash list
+*git stash save a b 
+*git status
+
+#command to copy a file form the stash 
+*git stash list
+*git stash apply stash@{0}
+
+#command to cut the file from the stash
+*git stash pop stash@{0}
+#
+#command to show the id of an particular file inthe stash 
+*git stash show stash@{0}
+
+#command to delete the file in stash
+*git stash drop  stash@{0}
+
+
+
+BRANCHING
+Banching is a techinque that makes a copy of source code to create versions that are devloped seperatly after altering devlopers will reassemble by concept called merge.
+
+
+#command to to check branch
+*git branch
+
+#command to create branch
+*git branch master1
+
+#command to checkout fom one branch another
+*git checkout master1
+
+#coammnd to merge the two branches
+*git merge master1
+
+#command to create branch checkout into the branch
+*git chekout -b master2
+
+#command to delete particular branch
+*git branch -d master
+
+#
+
+############################command to clone the particula brach from the github***********************************
+*git clone -n master2 (paste the url of particular branch)
+
+
+####RESET#####
+{Here we can reset the files form local to working are local to staging}
+
+working area ------staging area -------local repo
+*git logs --oneline
+(after entering above command commit id will come in one line)
+
+#command to reset the file from local repo to staging area
+*git reset --soft commit id
+
+#command to reset from staging area to working area
+*git reset head file_name
+
+#command to reset from working area to local repo
+*git reset --mixed commit_id
+
+
+####TAGS#####
+{These tags concept are used at the of release}
+
+
+intially have to commit the files after that by giving the command "git log --oneline" it show commit id with file name for e.g
+{e.g
+db3cf7f adding c file
+bd53f21 one more b file is added
+af0f871 a
+16a3c78 new dummy}after these 
+
+#command to assign a tag to file
+*git tag jan commit-id(e.g af0f871)
+
+####Here if we want to  push the tags into central repo
+
+*git remote add origin [URL]
+
+*git push -u origin master 
+
+# command to the tag into the github
+*git push origin jan 
+
+#command to push the mutliple tags into the git hub
+*git push origin --tags
+
+
+#command to delete tags in local repo
+initally *git log --oneline
+*git tag -d tag_name
+
+#command to delete tags inthe github(central repo)
+*git push --delete origin jan(tagname) 
+
+
+#####ONE OF THE COMMAND i.e.,IF THE COMMAND IS TOO BIG BY APPLYING THIS CONCEPT CALLED "Alias" WE CAN USE SAMLL THE COMMAND 
+
+E.g:- git conig --global alias.l "log --oneline"
+ 
+here l we can apply instead of log --oneline
+
+
+###########SOME IMPORTNAT QUESTIONS IN GIT############
+
+WHAT IS THE DIFERENCE BETWEEN GIT-CLONE, GIT- PULL, GIT- FECTH
+
+**GIT-CLONE
+If we want to download the toatal repository  from github we use git clone 
+
+**GIT-PULL
+If we want to download only updated code only we use the coammand git pull
+
+**GIT-FECTH
+What ever the data get from the cental repo and it keep in local repo when we analize it never shows but by using command called git merge it will show
+git pull =git fecth + git merge   
+
+##commad to find the files (e.g i would like to search git )
+*whereis git
+
+##command to know the which of git-version using
+*which git
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+     
+
+
+
+

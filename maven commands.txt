@@ -1,0 +1,89 @@
+ ===================MAVEN(BUILD TOOL)=========
+
+Build tool and Project management tool
+
+*Which converts human readable format to system readable fromat 
+*devlopers if they want devlop a app they need to plan so instead that maven(build tool) which devlops folder structure so that we can use easyly 
+*for every folder stucture it will one root directory in root directory there will be war.file (or) jar.file
+*To up jar.file it is fine to have java pacakges to the sever by using 2 to 3 commands we can up service, instead that if it is a war.file we have use separate tool to up war.file
+*for that using tool called apcahe tomacat.
+
+  ==Installations==
+for the devlopers we are going to insatll the maven
+
+for these we have to insatll java on our system bcz it is java based aplication
+
+and after we have to insatll maven.         
+
+                          =========we have to set up the java and maven to the devlopers on windows as wel as on liunx machine======== 369-
+#download java
+
+*https://www.oracle.com/in/java/technologies/javase/javase8-archive-downloads.html (i am taking java version.8)
+
+#According to your system configurtion choose the download option 
+(and here mine is windows*64 i am choosing these and click to download)
+
+#It will be downloaded to 
+*( windows/downloads take right click and run as administrator and give permissions it  will be installed)
+
+#set uping the enivironments
+1. c (folder)(open one by one)
+2. program files
+3. java
+4. open jdk.file
+5. here select the path in search bar and copy 
+6. take cursor on the ===THIS PC=== and right click ==properties==Advanced system properties===Enivornmental settings====user variables: NEW(OPEN)--1.variable name: JAVA_HOME
+                                                                                                                                                    2.variable value: paste the path here
+   have to repate with sligth diff ===THIS PC=== and right click ==properties==Advanced system properties===Enivornmental settings====system variables: give double click on path===new==paste the path here
+#know open the command crompt and give 
+*java -version 
+
+#download maven
+
+*https://maven.apache.org/install.html
+
+*downlods
+
+*download the zip file (https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.zip)
+
+note:-FOR ZIP FILES NEVER WANT TO (GIVE  RUN AS ADMINISTRATOR) WE CAN RUN ONLY .EXE FILES FOR ZIP FILES WE CAN RUN DIRECTLY
+
+*from downlods cut and copy to D OR E folders and give the right click on zip file=== extract all===here one files folders will open 
+ take cursor on the ===THIS PC=== and right click ==properties==Advanced system properties===Enivornmental settings====user variables: NEW(OPEN)--1.variable name: M2_HOME
+                                                                                                                                                    2.variable value: paste the path here
+
+ have to repate with sligth diff ===THIS PC=== and right click ==properties==Advanced system properties===Enivornmental settings====system variables: give double click on path===new==paste the path here
+* OPEN CMD AND THEN give mvn -version
+
+
+
+
+============APLLYOING THE MAVEN GOALS================
+#Intially we have to take one folder and then have to 
+e.g:- disk D(inside) created one folder with the naming of" icici-creditcard" enter into the folder in search bar copy the path enter "cmd" command prompt will open
+
+*mvn archetype:generate   ##(By enetring these it will connect to the maven offical web and brings the data(projects) and it will store next time if you apply same command it raises from stored projetcs)
+#validate - validate the project is correct and all necessary information is available
+#compile - compile the source code of the project
+#test - test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deploye*d
+#package - take the compiled code and package it in its distributable format, such as a JAR.
+#verify - run any checks on results of integration tests to ensure quality criteria are met
+*install - install the package into the local repository, for use as a dependency in other projects locally  ###(As a devops point it is importnat remianing all are for the konwledge and interview purpose)
+#deploy - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+
+
+==========WHAT ARE THE ROLES AND RESPONSIBILITES OF  BUUILD AND RELEASE ENGINEER ======================
+*wht ever the folder structures  commits  by devlopers it will pleased inthe github devops enginner as to place into server intially in test server
+
+
+
+============================INTEVIEW QUESTIONS ==================
+#WHERE WILL BE PRESNT YOUR LOCAL REOSITARY IN LINUX
+*ls -la (it will show hidden files i.e., .m2)
+
+==============WHT ARE THE ROLES IN OF DEVOPS ENGINNER WITH THE BUILD TOOL MAVEN=============
+Devoloper  build folder structers and place into the git central repo..
+From there devops engineer test the code by placing in test sever.
+if there is any bugs in the code intimate to devloper before intimating have to check the permissions and any updates fom our side if everything fine we hve to infrom to devlopoer
+ 

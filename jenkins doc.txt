@@ -1,0 +1,214 @@
+ JENKINS
+
+#jenkins is a plugin based tool 
+ans)jenkins is nothing but ci cd tool it is used to automate the manual proceses(contineous integration and contineous delivery)
+(jenkins is build with java and before the insatallation of jekins java should be insatlled.)
+
+
+#CI (CONTINEOUS INTEGRATIONo)
+ans) ci is software development processes where a code is continuously tested after a commit to ensure there are no bugs
+It is a processes of integrating code changes from mutliple developers in a single project for many times,software is tested immediatly after code commit. 
+
+#CD (CONTINEOUS DEPLOYMENT)
+ans) Continuous deployment is a strategy in software development where code changes to an application are released automatically into the production environment. 
+
+
+#CD (CONTINEOUS DELIVERY)
+ans) Contineous delivery a software development practice where code changes are automatically prepared for a release to production.
+
+
+#what is build and release enginner?
+
+ans) ever the code inthe git repogitery  place into the server and perform user administration , maintian and monitor software builds.
+ 
+
+#WHAT IS THE PREREQUISITE FOR THE JENKINS?
+ans) Java is the prerequsite for the jenkins.
+
+
+
+#What is tty error in the jenkins?
+ans) jenkins as no permission so as to give permission
+    fristly check user by "cat /etc/passwd" after passing these command will come to the users
+    and give "sudo visudo"   and  give the jenkins ALL=(ALL) NOPASSWD: ALL 
+
+
+     
+#how you are install jenkins? all packages at one server(like mvn,git,tomcat)are you install jenkins in one server?
+ans)i will install jenkins in separate server because if the build occurrs server performance will get and if we install all packages in one server it may occur slowness and supposed to pacth the servers. then i implemented 
+master & slave concept when  ever we have requiremnet accoding to that setuped a cron job and we used to build jobs in the master so that builds will be automatically ruuning on the destination servers.
+
+
+###WHY ARE YOU USING MASTER AND SLAVE CONCEPT?(or)IN WHICH SENARIO YOU USED MASTER AND SALVE CONCEPT?
+ANS)Intially i have insatlled my jekins on test-server totally i have maintained three jenkins servers,so when ever the build happens my devlopers feeling slowness 
+
+
+#waht is jenking master and slaves concept??
+ans)in simple words in master we will do all configurations and build proceeses will done here  and output  will fall in the slaves.
+
+
+##If the 10 jobs want to build at a time how it possible??
+ans)manaje-jenkins----> configure-system -----> # of executors [10 in the box provide how many jobs want to excute at a time]
+
+###Is it java is mandatory in node port to implement master and slave concept ???
+ans)yes.
+
+(IMP)
+####If job build done in master and the out shuold be fall on particular slave,so how it should be done??
+ans) by applying a  "labels" we can do it. click on master from dashboard-->configure --> GENERAL-->Restrict where this project can be run-->Labels[mention node tag here e.g:t1]
+
+(IMP)
+###can you explain how how master and salve concept works??
+ans)Dashboard--->Manage and cloud----->new node--->give the node name &click the box permanent[]---->Number of executors[5 or 6 our dependcis]-->Remote root directory[where it should fall output e.g var/lib/mydata]---->
+-->Labels[give the lable naming e.g:tag1]-->Usage[Usage these node as much as possible]-->Launch method[lauch via SSH]---->Host[i.p adres]--->Credentials[git-credentilas]save--->Host Key Verification Strategy[manually proided key verifiation stragay]-->
+--->SSH Key[enter pem key]--->Availability[keep these angent as much as possible]
+
+(IMP)
+#If i need specfic java version e.g 3.4 or 3.5 ,3.6 in these senarion we will use these concept
+ans)Manage Jenkins-->Global Tool Configuration--->JDK[here you can select the version]save 
+
+(IMP)
+##what kind of plugins you are used??
+1.list view,
+2.my view,
+3.nested view (proceses)-->downloadplugin(manage jenkins-->Manage Jenkins-->Available-plugins-->Nested view(install without restart)
+              [view inside the view]
+4.delete plugin
+5.restart plugin
+6.safe restart(if the jobs are runnig so after completion of jobs it will restart)
+7.Discard old build
+8.Delete workspace before build starts(if we want to delete the old builds)--)(configure--> build evironments-->Delete workspace before build starts)
+9.Add timestamps to the Console Output(job build timing will be displyed) --)(configure--> build evironments-->Add timestamps to the Console Output)
+10.Trigger builds remotely (e.g., from scripts)
+11.Build after other projects are built
+12.Build periodically
+13.GitHub hook trigger for GITScm polling
+14.Poll SCM
+15.green ball
+16.restrict job where job can be build
+17.Backup plugin
+18.periodic backup
+19.Role-based Authorization Strategy Plugin(how to create users)
+20.Email Notification plugin(how to send mail using plugin?)
+
+
+#NOte:- ####if any case jenkins is not installed give these commad and update it 
+
+      { Debian/Ubuntu
+Update Debian compatible operating systems (Debian, Ubuntu, Linux Mint Debian Edition, etc.) with the command:
+
+ans)Debian/Ubuntu
+$ curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+$ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+Red Hat/CentOS
+Update Red Hat compatible operating systems (Red Hat Enterprise Linux, Alma Linux, CentOS, Fedora, Oracle Linux, Rocky Linux, Scientific Linux, etc.) with the command:
+
+Red Hat/CentOS
+$ sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
+
+#And give command 
+*sudo apt update     }
+
+#command to check the java version
+*java -version
+
+#If i have installed java-version .8 and 11 but it showing the version.8 so if i want to switch to java-version 11
+*sudo update-alternatives --config java
+
+
+#If we check the jenkins status
+*sudo service jenkins status
+
+#If we want to start the jenkins
+*sudo service jenkins start
+
+#If we want to restart jenkins
+*sudo service jenkins restart
+
+#If we want to shutdown jenkins
+*sudo service jenkins stop
+
+#If we want to change the port number in jenkins
+* cd /etc    ===>(directory will open)  cd /default   ===>sudo vi jenkins(file will open change the port nummber HTTP_PORT =8080) 
+
+#next have to restart jenkins
+*sudo service jenkins restart
+
+#########jenkins on unbuntu or any other servers################
+
+
+
+
+####intaill we will know that how clone code from git hub#####
+1.new job
+2.choose which type of job(e.g FREE STLYE OR PIPELINE)by entering naming convention like e.g myfirstjenkins-job
+3.cllick on SOURCECODE MANAGEMENT --->CHOOSE GIT --> Give the your git credentials (it sholud be private)
+3.
+ 
+
+
+###CRON JOB SYNTAX####
+* fist star (mintue)
+*second star (hours)
+*third star (day of month 1-31)
+*fourth star (month 1-12)
+*fiveth star (day of week 0-6)
+   
+1.##BUILD PERIODICALLY######
+devloper and manager says for these time has to done build i.e sat 11.35pm on march 23
+Q)sat 11.35pm on march 23
+Ans)  35 23 23 3 sat
+(*****five stars )
+if we give stars every time it will build 
+
+2.###poll scm####
+In poll scm if we give *****(five stars ) if there occur any changes in that senario only it will build 
+
+3.####GitHub hook trigger for GITScm polling####
+In GITHUB HOOK TRIGGER if there any changes occur in that senario it will buid ,but previously in poll-scm if changes occur not a span of one mintue also it never occur 
+build because in poll- scm build occurs after one-mintue only, but in "github hook trigger" if changes occur in the code if devloper code commits done it will build.  
+
+How to do set up??
+
+Build tiggers-->GitHub hook trigger for GITScm polling[select it]--->come to git-hub-->select-job--->settings--->webhooks-->ADD webnook(give psswd)-->https://jenkins.ip.adress.port-number/github-webhook/--->json-format--->ADD WEBHOOK
+
+
+4.If we want to buid through the srcipt 
+[select]Trigger builds remotely (e.g., from scripts)
+
+Trigger builds remotely (e.g., from scripts)
+
+Authentication Token
+
+here in the box enter "TOKEN_NAME"
+
+after editing below url give it the url in the browser that enter it will build
+
+e.g:  JENKINS_URL/job/GSGR/build?token=TOKEN_NAME  (this will show after selecting these option)
+      http://44.202.29.63:8080/job/GSGR/build?token=gani123
+
+5.If we have any requiement that these job as to build after otheres jobs.e.g my job name is rcb-15 before these job chennai-superkings have to build so intat senario?
+ans)Build after other projects are built
+Projects to watch[give job name rcb-15]
+
+
+
+######GENERAL####
+
+HOW TO DISCARDOLD BUILDS???
+
+ANS)GENERAL-->Discard old builds--->Days to keep builds[IN THESE BOX GIVE HOW MANY BUILD NEED TO KEEP e.g 10]--->Max # of builds to keep[max how many have to keep e.g 5]-->save
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+###################MYQL(DATA BASE)######################
+#which version you used peviously in your organization ?
+*i am used 5.7 version used (or) 8 version used.
+#what is port number mysql ??
+*it is 3306
+
+###SET UP###
+*GOOgel it how to install mysql 5.7 on ubuntu 20.04 fass technix
+
+#(choose below one for the installation beacause fo the 20.04 and 22.04 have pass the public key)
+
+
+*https://www.fosstechnix.com/how-to-install-mysql-5-7-on-ubuntu-22-04-lts/
+
+#fallow the steps in the page it is neat and clear cut..
+
+
+
+
+ #command to enter into the mysql
+ *mysql -u root -p
+  passwd : K@makhi59 [e.g]
+
+#command to select the version
+ * select version();
+
+#command to show databases
+ * show databases;
+
+#command to create databases
+ * CREATE DATABASE creditcard;
+
+#command to drop database
+ * drop database creditcard;
+
+#command to use database
+ * use creditcard;
+
+#command to check tables in database
+ * show  tabels;
+
+**Note :-we can not do back up from the inside the data base(i.e.,mysql) do from the sever 
+
+
+
+#############TAKING BACKUP OR DUMP#################
+#To take the bakup firstly we have to create the one directry with full permisions e.g
+  e.g*cd /opt/mysqlbackups/
+ [if it throws permission denied give full permissions to the directory]
+
+#command to take the database backup(it can pronounce as "dump" in mysql ) 
+  (syntax:- sudo mysqldump -u username -p passwod databasename > /opt/directory-name/database-name.sql)
+ *e.g;- sudo mysqldump -u root -p mysql > /opt/mysqlbackups/mysql.sql
+
+############RESTORATIONS#########################
+ #command to take restorations [for retorations also we  have to take from the server itself not from the database .i.e., mysql
+ (syntax:- sudo mysql -u user -p {created_database_name in mysql} < /opt/directoryname/database_name_previously_created.sql)
+ *e.g sudo mysql -u root -p mysql < /opt/mysqlbackups/mysql.sql
+
+NOTE:- USE THE BELOW LINK TO KNOW THE BREIF ABOUT THE MYSQL COMMANDS .... 
+https://www.w3schools.com/mysql/exercise.asp?filename=exercise_update3
+
+
+#how to change the root name in mysql?
+*e.g;- ->show databases;
+           
+       ->use database-name(e.g mysql.user);
+    
+       ->select user from MySQL.user;
+   
+       ->update user set user = 'myRoot' where user = 'root';
+                           (name_which_want_to_change)
+#how to change the user ???
+*select user from MySQL.user;
+        
+
+
+ 

@@ -1,0 +1,265 @@
+              =====KUBERNETS====
+
+touch webserver.yml(or).yaml (command to create the yaml file)
+
+nano websever.yml(or).yaml (we will use one editor (i.e nano or vi editor) to insert the data regarding pod (or) container)
+
+
+kubectl create -f webserver.yml (command to create pod )these is through imperative way i.e (through command line)
+                                  OR
+kubectl apply -f webserve.yml   (command to create pod through declarative way i.e(through yaml file)
+
+
+kubectl get pods  (command to see created pods)
+
+
+kubectl describe pod podname (command to know everything about the pod)
+
+
+kubectl get all -o wide (command to see the pods and containers with clusterip's)
+
+
+kubectl exec -it webserver-djsdhgfashl /bin/bash    (command to enter into the conatiner)
+                {copy&past the pod addres}
+
+kubectl    expose      deployment         webserver         --type=ClusterIP (command to expose the service)      {CREATE SERVICE}
+                  {which u want expose} {which type of pod}        {which service want to place}
+
+
+kubectl    expose      deployment         webserver         --type=NodePort (command to expose the service)    {CREARE DEPLOMENT}
+
+
+watch kubectl get all -o wide (command to watch all the Services ,Controllers ,pods and containes which were created )
+
+
+apt-get update (command to update the cluster)
+					
+apt install curl -y
+
+kubectl delete service   web-server (command to delete the service)                    {DELETE SERVICE}
+
+kubectl delete deployment web-server (command to delete the deployment controller)      {DELETE DEPLOMENT}
+   {after these command there will be no pods and containres }
+
+
+
+                              =====NAMESPACES====
+
+
+kubectl get namespace (or) ns     (command to get namespaceses in cluster)
+
+
+kubectl create namespace  marvel     (command to create the namespace)
+
+
+kuebctl delete namespace marvel     (command to delete namespace)
+
+
+kubectl -n marvel apply -f webserver.yml (command to create a deployment-controller inside the namespace) 
+
+
+kubectl -n marvel run mypod --image=nginx  (command to create pod inside the namespace)
+
+
+kubectl -n marvel get pods   (commands to get pods inside namespace)
+
+kubectl delete -n marvel pod podname  (command to delete inside pod inside the namespace)
+
+kubectl -n marvel get all    (command to get all the pods iinside the namespce)
+
+  ==================RESOURCE QUOTA(CONCEPT ON NAMESPACE)===============
+
+ 
+kubectl create namepace project1
+
+kubectl get ns
+
+touch quota.yml
+
+nano quota.yml
+(give the below data)
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+ name: project1
+ namespace: project1
+spec:
+ hard:
+  pods: "2"
+  services: "3"
+     
+
+cntl+x-->y--->enter
+
+
+
+
+kubectl -n project1 apply -f quota.yml
+
+kubectl -n project1 get quota
+
+
+(now give create pods morethan 2 its through an error)
+
+kubectl -n project1 run bnr pod --image=nginx     (command to create the pod)
+
+
+                                                                                   {AND RESOURCE LIMIT}
+
+SAME PROCESE but keep the limit in the file ,open the file---> quota.yaml --->nano quota.yaml
+
+
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+ name: project1
+ namespace: project1
+spec:
+ hard:
+  pods: "2"
+  services: "3"
+  limits.memory: "500Mi"
+  limits.cpu: "4"
+
+
+kubectl -n project1 apply -f quota.yml
+
+know create pod less than 500Mi memory and less than 4 cpus .so, these requirements will satisfy if not through an error
+
+  
+
+
+                       ========context=========
+
+kubectl config get-contexts  (command to get contexts)
+
+(peviously we are created the namespaces in that there will be a default namepace..so that pods which we are created it be shown in default namespace and context .In such way if we want to create our own context these is the command)
+kubectl config set-context marvel --namespace=marvel --user=kubernates-admiin  --cluster=kubernates
+ 
+
+kubectl config get-context
+
+
+kubectl config  use-context marvel (command to switch the default namespace  to our slected namespace called marvel)
+  
+
+kubectl delete pod podname
+															k
+
+
+                                    ============TAINT========
+
+
+kubectl taint node nodename | grep -i taint  (command to check taint is attached are not)
+                             (or)
+kubectl describe node nodename (we can see taint is enabled or not )
+
+**taint is deafultly master node is applied and for the node is disabled
+
+kubectl taint node nodename key1=value1:NoSchedule      (command to apply the taint to node)
+
+
+
+kubectl taint node nodename key1=value1:NoSchedule-     (command to disable the tiant to node)
+
+
+
+{every time after applying are diasbling the taint check with 1nd command }
+
+
+
+
+                                   ================LABLE===========
+   {Lable concept is used for in case we want create pods inthe particular node we use lable concept.In taint we must disable in master and to creation of pods and in the pods we enable the tiant to not creation of pods}
+
+kubectl label node nodename(e.g master) node=MS (command to create label to particular node) 
+
+
+touch label.yml
+
+
+nano label.yml 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ganesh
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+  nodeSelector:
+    node: "MS"  {under CP you can keep anything which you are given in the label creating }
+
+ctrl+x=enter
+ 
+
+[{so know create pods in master if be taint is eanble also pods will be creted. if you want to check create pods in by using .yml in master and check wheather it is wroking are not}]
+
+
+
+
+
+                             ================POD LIMIT===========
+
+kubectl describe node nodename    (command to check the node detials inthat can see the pod limit)
+
+
+
+so to increase the pod limit,go to 
+       cd /var/lib/  --->cd  kubelet ---> nano config.yaml(file will open come down to the file and give )maxPods: 50 (or) (500) its wish depending requiment we decrase are increase
+
+(close the file and then restart the system by command)
+    systemctl restart config.yaml 
+
+kubetl describe node nodename (know you check the pods whethere incesed are decreased)
+
+
+
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+      
+                                                                  
+
+
+   
+
+
+
+
+
+          
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
